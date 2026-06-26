@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El valle que el Perú olvidó: Huntington en Cañete</title>
+    <style>
+        /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
+        :root {
+            --color-principal: #111827; /* Gris muy oscuro, tono serio */
+            --color-acento: #9a3412;    /* Óxido / Rojo tierra, transmite urgencia y drama */
+            --color-fondo: #f9fafb;     /* Blanco roto para lectura cómoda */
+            --color-texto: #374151;     /* Gris oscuro para cuerpo de texto */
+            --fuente-titulos: 'Georgia', serif;
+            --fuente-cuerpo: 'Arial', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--fuente-cuerpo); background-color: var(--color-fondo); color: var(--color-texto); line-height: 1.8; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); color: var(--color-principal); }
+        a { color: var(--color-acento); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav { background-color: var(--color-principal); padding: 1rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 2rem; }
+        nav a { color: #ffffff; font-weight: bold; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: #f97316; text-decoration: none; }
+
+        /* --- PORTADA / HERO SECTION --- */
+        header { background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover; text-align: center; padding: 8rem 1rem; color: #ffffff; }
+        header h1 { font-size: 3rem; color: #ffffff; margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.2; }
+        header p { font-size: 1.25rem; font-style: italic; color: #d1d5db; max-width: 700px; margin: 0 auto 2rem; }
+        .badge-tpi { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #f97316; font-weight: bold; margin-bottom: 1rem; display: block; }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; }
+        section { scroll-margin-top: 5rem; margin-bottom: 5rem; }
+        
+        .seccion-ancha { max-width: 1000px; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--color-acento); padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; text-align: justify; }
+
+        /* --- PODCAST DESTACADO --- */
+        .podcast-box { background-color: #f3f4f6; border-left: 5px solid var(--color-acento); padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+        .podcast-box h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+        /* --- TABLAS Y DATOS --- */
+        table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        th { background-color: var(--color-principal); color: #ffffff; }
+
+        /* --- BLOQUE MULTIMEDIA (VIDEOS) --- */
+        .grid-multimedia { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: 2rem; }
+        .video-card { background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-info { padding: 1.5rem; }
+        .video-info h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .video-info blockquote { font-style: italic; color: #4b5563; border-left: 3px solid var(--color-acento); padding-left: 1rem; margin: 1rem 0; }
+
+        /* --- SECCIÓN RECURSOS / AYUDA --- */
+        .recursos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .card-recurso { background: #f3f4f6; padding: 1.5rem; border-radius: 8px; }
+        .card-recurso h3 { margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .card-recurso ul { list-style-position: inside; }
+
+        /* --- PIE DE PÁGINA --- */
+        footer { background-color: var(--color-principal); color: #9ca3af; text-align: center; padding: 3rem 1rem; font-size: 0.9rem; border-top: 4px solid var(--color-acento); }
+        footer strong { color: #ffffff; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; }
+            .recursos-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#reportaje">El Reportaje</a></li>
+            <li><a href="#voces">Voces Multimedia</a></li>
+            <li><a href="#opinion">Opinión</a></li>
+            <li><a href="#recursos">Recursos y Ayuda</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <span class="badge-tpi">Taller de Periodismo de Investigación</span>
+        <h1>El valle que el Perú olvidó: la Enfermedad de Huntington y las familias de Cañete</h1>
+        <p>A menos de dos horas de Lima, una comunidad convive en silencio con una condena genética desde hace más de cien años.</p>
+        <div style="font-size: 0.9rem; color: #9ca3af;">Por: <strong>García Ccolque, Claudia Karolina</strong> | Abril, 2026</div>
+    </header>
+
+    <div class="container">
+        
+        <section id="introducción">
+            <p>La Enfermedad de Huntington es un trastorno neurodegenerativo hereditario, progresivo e incurable que destruye el sistema nervioso lentamente. No hay tratamiento que la detenga. No hay forma de escapar de ella si se hereda el gen mutante[cite: 14, 15]. Y en el Valle de Cañete, esta herencia se repite generación tras generación en un silencio absoluto[cite: 13, 16].</p>
+            
+            <div class="podcast-box">
+                <h3>🎙️ Escucha el Podcast: Cerca y Lejos</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Escucha este episodio introductorio donde narramos la historia de manera accesible y conectamos la realidad de Cañete con el foco histórico en Maracaibo, Venezuela[cite: 164].</p>
+                <audio controls style="width: 100%;">
+                    <source src="PODCAST - CLAUDIA KAROLINA GARCÍA CCOLQUE.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+            </div>
+        </section>
+
+        <section id="reportaje">
+            <h2>El Reportaje</h2>
+            <p>El primer estudio científico sobre este caso fue publicado en 1983 por el médico José Cuba, quien identificó una prevalencia estimada de 31 casos por cada 100,000 habitantes en la provincia de Cañete[cite: 17]. Esta cifra es dramáticamente superior al promedio mundial en poblaciones caucásicas[cite: 17].</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Población / Región</th>
+                        <th>Prevalencia (Casos por cada 100,000 hab.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Valle de Cañete (Perú)</strong></td>
+                        <td>31 casos [cite: 17]</td>
+                    </tr>
+                    <tr>
+                        <td>Promedio Mundial (Caucásicos)</td>
+                        <td>1 a 4 casos [cite: 17]</td>
+                    </tr>
+                    <tr>
+                        <td>San Francisco (Lago de Maracaibo, Venezuela)</td>
+                        <td>Hasta 700 casos [cite: 45, 47]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Un trastorno autosómico dominante implica que basta con heredar una copia del gen mutante para desarrollarla inevitablemente[cite: 22, 23]. Los síntomas aparecen habitualmente entre los 30 y los 50 años, manifestando primero alteraciones emocionales y conductuales, seguidas de los característicos movimientos involuntarios (corea) y deterioro cognitivo final[cite: 24].</p>
+            <p>A diferencia de Venezuela, donde el "Mal de San Vito" capturó atención científica global e infraestructura especializada, el proceso en Cañete ha sido invisible para el conocimiento público general de nuestro propio país[cite: 44, 45, 51, 53].</p>
+        </section>
+    </div>
+
+    <div class="container seccion-ancha" id="voces">
+        <h2>Voces Multimedia</h2>
+        <p style="text-align: center; margin-bottom: 3rem;">Evidencias periodísticas y entrevistas audiovisuales recolectadas en el campo de investigación[cite: 165].</p>
+
+        <div class="grid-multimedia">
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/B7cmN8xhiQg" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>1. La Perspectiva Médica</h3>
+                    <p style="font-size: 0.95rem;">Entrevista con el Dr. Luis Enrique Vera Benavides, Jefe del Servicio de Neurología del Hospital Edgardo Rebagliati Martins[cite: 26, 165].</p>
+                    <blockquote>
+                        "Los síntomas iniciales son inespecíficos: depresión, insomnio, comportamientos inadecuados. La manifestación motora, que es la más reconocible, aparece en etapas más avanzadas"[cite: 27].
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Cu1q2I2G4ko" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>2. El Esfuerzo de la Sociedad Civil</h3>
+                    <p style="font-size: 0.95rem;">Entrevista a Esther Candela, presidenta de la Asociación Familia Huntington Perú, detallando los 9 años de trabajo y soporte directo en el lugar de los hechos[cite: 166].</p>
+                    <blockquote>
+                        "Los pacientes requieren de tener una alimentación mejorada por el movimiento constante de todo el cuerpo y el fuerte desgaste físico... visibilizar la enfermedad es clave para buscar ayuda"[cite: 179].
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/1eW07gY8lN0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>3. Análisis de Sensibilización: Patient Journey</h3>
+                    <p style="font-size: 0.95rem;">Desarmado audiovisual y trasfondo humano del documental de la red ERN-RND, exponiendo de forma cruda lo que implica habitar en una prisión física y mental[cite: 167].</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="opinion">
+            <h2>Opinión: La deuda del periodismo</h2>
+            <p style="font-weight: bold; font-size: 1.2rem; color: var(--color-principal);">¿Por qué el caso de Cañete ha permanecido invisible para el Perú durante más de cuarenta años? [cite: 69]</p>
+            <p>La respuesta es simple: nadie lo ha contado a gran escala[cite: 70]. El periodismo de investigación tiene una tarea pendiente que va mucho más allá del interés de los datos informativos; aquí hay vidas que dependen directamente de que esta historia se exponga públicamente para romper el estigma social y obligar a una política estatal integrada[cite: 80, 89, 90].</p>
+        </section>
+
+        <section id="recursos">
+            <h2>¿Cómo ayudar? y Recursos</h2>
+            <div class="recursos-grid">
+                <div class="card-recurso">
+                    <h3>Asociaciones Civiles</h3>
+                    <p style="font-size: 0.95rem;">Puedes contactar y sumarte a las iniciativas de soporte voluntario, campañas navideñas o donación de suplementos nutricionales[cite: 140, 184]:</p>
+                    <ul style="margin-left: 1rem; font-size: 0.95rem;">
+                        <li><strong>Asociación Familias Huntington Perú</strong> [cite: 58]</li>
+                        <li><strong>Corea de Huntington Perú</strong> [cite: 58]</li>
+                    </ul>
+                </div>
+                <div class="card-recurso">
+                    <h3>Literatura Científica</h3>
+                    <p style="font-size: 0.95rem;">Consulta los papers académicos citados en esta investigación para profundizar en la materia[cite: 183]:</p>
+                    <ul style="margin-left: 1rem; font-size: 0.95rem; list-style-type: square;">
+                        <li>Cuba, J.M. y Torres, L. (1990). Revista de Neuro-Psiquiatría[cite: 94, 95].</li>
+                        <li>Torres, L. et al. (2006). Revista Diagnóstico[cite: 96, 97].</li>
+                        <li>Kay, C. et al. (2016). European Journal of Medical Genetics[cite: 108, 109].</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 - Reportaje de Investigación Multimedia</p>
+        <p>Facultad de Comunicaciones — <strong>Universidad Privada del Norte</strong>[cite: 111, 112].</p>
+    </footer>
+
+</body>
+</html>

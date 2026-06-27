@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El valle que el Perú olvidó: la Enfermedad de Huntington en Cañete</title>
+    <style>
+        /* --- ARQUITECTURA DE DISEÑO Y PALETA DE COLORES MULTIMEDIA --- */
+        :root {
+            --color-primario: #0b0f19;    /* Azul medianoche profundo, tono institucional y serio */
+            --color-secundario: #1f2937;  /* Gris oscuro para elementos de interfaz */
+            --color-acento: #b45309;      /* Ámbar/Óxido, transmite alerta y pertinencia social */
+            --color-spotify: #1ed760;     /* Verde característico de la plataforma de audio */
+            --color-fondo: #fcfdfd;       /* Fondo claro optimizado para lectura prolongada */
+            --color-texto: #2d3748;       /* Gris carbón para óptimo contraste de texto */
+            --fuente-titulos: 'Georgia', serif;
+            --fuente-cuerpo: 'Arial', sans-serif;
+        }
+
+        /* --- ESTILOS DE RESETEO Y BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--fuente-cuerpo); background-color: var(--color-fondo); color: var(--color-texto); line-height: 1.85; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--fuente-titulos); color: var(--color-primario); font-weight: 700; }
+        a { color: var(--color-acento); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--color-primario); text-decoration: underline; }
+
+        /* --- MENÚ DE NAVEGACIÓN COMPACTO Y FIJO --- */
+        nav { background-color: var(--color-primario); padding: 1.2rem 1rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        nav a { color: #e5e7eb; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; text-transform: uppercase; }
+        nav a:hover { color: var(--color-spotify); text-decoration: none; }
+
+        /* --- CABECERA DE IMPACTO (HERO SECTION) --- */
+        header { background: linear-gradient(rgba(11, 15, 25, 0.88), rgba(11, 15, 25, 0.96)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover; text-align: center; padding: 11rem 1.5rem; color: #ffffff; border-bottom: 5px solid var(--color-acento); }
+        header h1 { font-size: 3.5rem; color: #ffffff; margin-bottom: 1.5rem; max-width: 950px; margin-left: auto; margin-right: auto; line-height: 1.25; letter-spacing: -0.5px; }
+        header p { font-size: 1.35rem; font-style: italic; color: #cbd5e1; max-width: 750px; margin: 0 auto 2.5rem; font-family: var(--fuente-titulos); }
+        .badge-tpi { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: var(--color-acento); font-weight: 800; margin-bottom: 1.2rem; display: block; }
+        .autor-meta { font-size: 0.95rem; color: #94a3b8; border-top: 1px solid #334155; display: inline-block; padding-top: 1rem; margin-top: 1rem; }
+
+        /* --- CONTENEDORES Y MAQUETACIÓN --- */
+        .container { max-width: 850px; margin: 5rem auto; padding: 0 1.5rem; }
+        .seccion-ancha { max-width: 1150px; }
+        section { scroll-margin-top: 6rem; margin-bottom: 6rem; }
+        
+        h2 { font-size: 2.2rem; position: relative; padding-bottom: 0.75rem; margin-bottom: 2.5rem; border-bottom: 2px solid #e2e8f0; }
+        h2::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 80px; height: 3px; background-color: var(--color-acento); }
+        h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+        p { margin-bottom: 1.8rem; font-size: 1.15rem; text-align: justify; color: #334155; }
+
+        /* --- RECUADRO DE INTEGRACIÓN DE SPOTIFY --- */
+        .spotify-container { background-color: #0f172a; border-radius: 12px; padding: 2rem; margin: 3rem 0; display: flex; align-items: center; justify-content: space-between; border: 1px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .spotify-info { flex: 1; padding-right: 2rem; }
+        .spotify-info h3 { color: #ffffff; margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; font-family: var(--fuente-cuerpo); font-size: 1.3rem; }
+        .spotify-info p { color: #94a3b8; font-size: 1rem; margin: 0; text-align: left; }
+        .spotify-btn { background-color: var(--color-spotify); color: #000000; font-weight: 700; padding: 0.9rem 2rem; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; }
+        .spotify-btn:hover { background-color: #1ed760; transform: scale(1.04); text-decoration: none; color: #000000; }
+
+        /* --- INTERFACES DE DATOS (TABLAS) --- */
+        .table-responsive { overflow-x: auto; margin: 3rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        table { width: 100%; border-collapse: collapse; background: #ffffff; }
+        th, td { padding: 1rem 1.5rem; text-align: left; font-size: 1.05rem; }
+        th { background-color: var(--color-primario); color: #ffffff; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        tr:border-bottom: 1px solid #edf2f7;
+
+        /* --- MÓDULOS MULTIMEDIA REFORZADOS (VIDEOS) --- */
+        .grid-multimedia { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .video-card { background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.3s ease; }
+        .video-card:hover { transform: translateY(-5px); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background-color: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-info { padding: 2rem; }
+        .video-info h3 { margin-bottom: 0.75rem; font-size: 1.4rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem; }
+        .video-info blockquote { font-style: italic; color: #475569; border-left: 4px solid var(--color-acento); padding-left: 1.25rem; margin: 1.5rem 0; font-size: 1.05rem; line-height: 1.6; }
+
+        /* --- GRID DE RECURSOS E INSTITUCIONES --- */
+        .recursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .card-recurso { background: #f8fafc; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; border-top: 4px solid var(--color-primario); }
+        .card-recurso h3 { margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-recurso ul { list-style-type: none; }
+        .card-recurso li { margin-bottom: 0.75rem; position: relative; padding-left: 1.25rem; font-size: 1.05rem; }
+        .card-recurso li::before { content: "•"; color: var(--color-acento); font-weight: bold; position: absolute; left: 0; }
+
+        /* --- PIE DE PÁGINA --- */
+        footer { background-color: var(--color-primario); color: #94a3b8; text-align: center; padding: 4rem 1.5rem; font-size: 0.95rem; border-top: 5px solid var(--color-acento); margin-top: 6rem; }
+        footer strong { color: #ffffff; }
+        footer p { text-align: center; color: #64748b; margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+        /* --- RESPONSIVIDAD --- */
+        @media (max-width: 768px) {
+            header { padding: 7rem 1rem; }
+            header h1 { font-size: 2.2rem; }
+            nav ul { gap: 1.2rem; flex-wrap: wrap; }
+            .spotify-container { flex-direction: column; text-align: center; gap: 1.5rem; padding: 1.5rem; }
+            .spotify-info { padding-right: 0; }
+            .spotify-info p { text-align: center; }
+            .grid-multimedia { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#reportaje">El Reportaje</a></li>
+            <li><a href="#voces">Voces Multimedia</a></li>
+            <li><a href="#opinion">Opinión</a></li>
+            <li><a href="#recursos">Recursos y Ayuda</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <span class="badge-tpi">Taller de Periodismo de Investigación</span>
+        <h1>El valle que el Perú olvidó: la Enfermedad de Huntington y las familias de Cañete</h1>
+        <p>A menos de dos horas de Lima, una comunidad convive en silencio con una condena genética desde hace más de cien años.</p>
+        <div class="autor-meta">
+            Por: <strong>García Ccolque, Claudia Karolina</strong> | Docente: Aldo Antonio Tinoco Mujica<br>
+            <strong>Universidad Privada del Norte</strong> — Lima, Abril de 2026
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="introduccion">
+            <p>A menos de dos horas de la capital peruana, en el Valle de Cañete, habitan agrupaciones familiares enteras que sobrellevan una herencia invisible, irreversible y letal. La Enfermedad de Huntington es un trastorno neurodegenerativo de carácter genético que ataca de manera progresiva las facultades físicas y cognitivas del sistema nervioso, despojando al individuo de su autonomía de manera paulatina y fulminante.</p>
+            
+            <p>Ante la falta de tratamientos farmacológicos modificadores de la enfermedad a nivel global, el diagnóstico temprano se convierte a menudo en un proceso tortuoso. Los pacientes de Cañete experimentan la manifestación sistemática de los síntomas sin el amparo de redes institucionales continuas, quedando el soporte económico, físico y emocional supeditado casi enteramente a los cuidadores domésticos.</p>
+            
+            <div class="spotify-container">
+                <div class="spotify-info">
+                    <h3>🟢 Escuchar en Spotify: Podcast "Cerca y Lejos"</h3>
+                    <p>Sintoniza el canal oficial para acceder al reportaje narrativo en formato sonoro y profundizar en el paralelo histórico de esta enfermedad en América Latina.</p>
+                </div>
+                <a href="https://open.spotify.com/episode/0byMQDkzAv5CLnqnMW3Zas?si=NdWMEL0UT1KCkadJlR8AWA" target="_blank" class="spotify-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle;"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.076-.336.135-.668.47-.743 3.856-.88 7.15-.502 9.822 1.134.296.182.387.567.205.854zm1.224-2.72c-.226.367-.707.487-1.074.26-2.72-1.672-6.868-2.157-10.082-1.182-.412.125-.845-.107-.97-.52-.124-.412.108-.847.52-.97 3.676-1.114 8.238-.574 11.347 1.34.368.226.488.707.26 1.072zm.104-2.85c-.273.447-.857.595-1.305.32-3.178-1.887-8.41-2.06-11.423-1.146-.503.153-1.037-.134-1.19-.636-.152-.503.134-1.036.637-1.19 3.59-1.09 9.356-.893 13.01 1.277.447.266.596.847.32 1.302z"/></svg>
+                    Abrir en Spotify
+                </a>
+            </div>
+        </section>
+
+        <section id="reportaje">
+            <h2>El Reportaje de Investigación</h2>
+            <p>La concentración epidemiológica de este padecimiento en el Valle de Cañete constituye una anomalía genética de interés mundial. El primer registro formal de esta comunidad fue consolidado en 1983 por el neurólogo peruano José Cuba, quien estimó una tasa de prevalencia local de 31 casos por cada 100,000 habitantes. Este indicador contrasta abiertamente con los estándares internacionales observados en poblaciones de origen caucásico, donde la prevalencia media fluctúa apenas entre 1 y 4 casos por cada 100,000 habitantes.</p>
+            
+            <p>Hacia la década de 1990, los rastreos clínicos permitieron diagramar árboles genealógicos de gran envergadura. Un único linaje familiar evidenciaba a treinta pacientes confirmados dentro de un grupo de aproximadamente cuatrocientos parientes evaluados, extendiéndose de forma ininterrumpida a lo largo de siete generaciones biológicas consecutivas.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Región / Población Evaluada</th>
+                            <th>Tasa de Prevalencia (Casos por cada 100,000 habitantes)</th>
+                            <th>Estado de Infraestructura / Atención Pública</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Valle de Cañete (Perú)</strong></td>
+                            <td><strong>31 casos</strong></td>
+                            <td>Silencio de políticas públicas, carencia de censo activo y aislamiento geográfico.</td>
+                        </tr>
+                        <tr>
+                            <td>Promedio Internacional (Caucásicos)</td>
+                            <td>1 a 4 casos</td>
+                            <td>Líneas base estándar y acceso regular a neurología clínica avanzada.</td>
+                        </tr>
+                        <tr>
+                            <td>San Francisco (Maracaibo, Venezuela)</td>
+                            <td>Hasta 700 casos</td>
+                            <td>Visibilidad internacional histórica, clínicas locales y asociaciones fondeadas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Mecanismos Hereditarios y Sintomatología</h3>
+            <p>Al tratarse de una patología de transmisión autosómica dominante, las leyes de la herencia dictaminan que un progenitor afectado posee un 50% de probabilidad de transmitir el gen mutado a cada uno de sus descendientes directos. La alteración consiste en la repetición patológica del triplete de nucleótidos CAG dentro del ADN, una característica molecular analizada exhaustivamente en el país por centros de referencia especializada.</p>
+            
+            <p>Los cuadros clínicos suelen manifestarse formalmente en la etapa de madurez productiva, comúnmente entre los 30 y los 50 años de edad, aunque se reportan variantes de progresión juvenil antes de los 20 años. La fase inicial se caracteriza por alteraciones severas del comportamiento, estados depresivos crónicos, trastornos de ansiedad e insomnio persistente. En etapas posteriores, surgen las manifestaciones motoras involuntarias conocidas clínicamente como corea, seguidas por el declive cognitivo general y un desenlace fatal que sobreviene entre diez y veinte años posteriores al debut de los síntomas clínicos.</p>
+        </section>
+    </div>
+
+    <div class="container seccion-ancha" id="voces">
+        <h2>Voces Multimedia</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.15rem; color: #475569;">
+            Recopilación de testimonios clínicos, gremiales y analíticos registrados durante el desarrollo de esta cobertura periodística.
+        </p>
+
+        <div class="grid-multimedia">
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/B7cmN8xhiQg" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>1. Perspectiva Médica Especializada</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1rem;">Diálogo con el Servicio de Neurología Clínica</p>
+                    <p style="font-size: 1.05rem;">Análisis pormenorizado provisto por el Dr. Luis Enrique Vera Benavides, jefe del Servicio de Neurología del Hospital Nacional Edgardo Rebagliati Martins, enfocado en las dificultades diagnósticas y la carga financiera de los tratamientos.</p>
+                    <blockquote>
+                        "Los síntomas iniciales son inespecíficos: depresión, insomnio, comportamientos inadecuados. La manifestación motora, que es la más reconocible, aparece en etapas más avanzadas, demandando un abordaje familiar y multidisciplinario."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Cu1q2I2G4ko" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>2. El Frente Intervencionista Civil</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1rem;">Liderazgo de Soporte Comunitario</p>
+                    <p style="font-size: 1.05rem;">Entrevista extendida a Esther Candela, presidenta fundadora de la Asociación Familia Huntington Perú, quien expone las crónicas de campo recolectadas a lo largo de casi una década de visitas técnicas de soporte alimentario y de salubridad en la provincia.</p>
+                    <blockquote>
+                        "Debido al movimiento involuntario constante, el desgaste calórico y físico del paciente es extremo. Requieren de una alimentación mejorada y de suplementos de nutrición especializada que la asistencia estatal regular no llega a cubrir."
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/1eW07gY8lN0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>3. Lenguaje Audiovisual y Empatía</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1rem;">Análisis Documental y Crítica Social</p>
+                    <p style="font-size: 1.05rem;">Exploración del trasfondo de los recursos comunicativos empleados por plataformas internacionales de sensibilización como ERN-RND, orientados a visibilizar la denominada prisión mental y el impacto emocional de la incertidumbre en los jóvenes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="opinion">
+            <h2>Opinión: La deuda del periodismo</h2>
+            <p style="font-weight: bold; font-size: 1.3rem; color: var(--color-primario); line-height: 1.4; margin-bottom: 1.5rem;">
+                La invisibilidad mediática como agravante del desamparo sanitario.
+            </p>
+            <p>La permanencia en la penumbra pública de un foco de Huntington de la magnitud de Cañete plantea interrogantes de carácter ético y profesional para los medios de comunicación nacionales. El contraste con las realidades análogas de la región, como el caso del Lago de Maracaibo en Venezuela, demuestra que la construcción de relatos públicos sostenidos no constituye un mero registro de hechos, sino un detonante para la canalización de recursos de investigación internacional, infraestructura clínica y políticas públicas específicas.</p>
+            
+            <p>La labor fiscalizadora y de investigación del periodismo contemporáneo se enfrenta a la urgente necesidad de dotar de un rostro humano a las frías estadísticas clínicas, promoviendo la empatía ciudadana necesaria para erradicar el estigma social y forzar el diseño de un censo oficial actualizado por parte de los organismos reguladores del sector salud en el país.</p>
+        </section>
+
+        <section id="recursos">
+            <h2>Plataformas de Recursos e Investigación</h2>
+            <div class="recursos-grid">
+                <div class="card-recurso">
+                    <h3>Organizaciones de Apoyo</h3>
+                    <p style="font-size: 1rem; color: #475569; margin-bottom: 1rem;">Canales de articulación de soporte, asistencia al cuidador y programas comunitarios de donación:</p>
+                    <ul>
+                        <li><strong>Asociación Familias Huntington Perú</strong> — Red civil de acompañamiento psicosocial y coordinación de suministros especiales.</li>
+                        <li><strong>Corea de Huntington Perú</strong> — Espacio de difusión científica, consejería y orientación familiar.</li>
+                    </ul>
+                </div>
+                <div class="card-recurso">
+                    <h3>Repositorio Científico</h3>
+                    <p style="font-size: 1rem; color: #475569; margin-bottom: 1rem;">Referencias fundamentales para profundizar en las bases clínicas y moleculares del caso Cañete:</p>
+                    <ul>
+                        <li>Cuba, J.M. y Torres, L. (1990). <em>Estudio de una familia con Corea de Huntington en Cañete</em>. Revista de Neuro-Psiquiatría.</li>
+                        <li>Torres, L. et al. (2006). <em>Estudio clínico molecular de la Enfermedad de Huntington en el Valle de Cañete</em>. Revista Diagnóstico.</li>
+                        <li>Kay, C. et al. (2016). <em>Huntington disease in Peru: two distinct origins</em>. European Journal of Medical Genetics.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Reportaje de Investigación Multimedia de Largo Aliento</p>
+        <p>Facultad de Comunicaciones — <strong>Universidad Privada del Norte</strong></p>
+        <div style="margin-top: 1.5rem; font-size: 0.8rem; color: #475569;">
+            Desarrollado con propósitos estrictamente académicos y de sensibilización periodística. Lima, Perú — 2026.
+        </div>
+    </footer>
+
+</body>
+</html>
